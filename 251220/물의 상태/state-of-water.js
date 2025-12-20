@@ -7,7 +7,7 @@ let answer = 'water';
 if (n < 0) {
     answer = 'ice';
 } else if (n >= 100) {
-    answer = 'vaper';
+    answer = 'vapor';
 }
 
 console.log(answer);
