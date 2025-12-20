@@ -15,7 +15,7 @@ for (let i = 0; i < n; i++) {
 
 for (let i = 0; i < n; i++) {
     let line = '';
-    for (let j = 0; j < n; j++) {
+    for (let j = 0; j < m; j++) {
         if (arr1[i][j] === arr2[i][j]) {
             line += 0 + ' ';
         } else {
