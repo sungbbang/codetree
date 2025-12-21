@@ -24,6 +24,6 @@ elif n == 10:
 elif n == 11:
     days = 30
 elif n == 12:
-    days = 30
+    days = 31
 
 print(days)
