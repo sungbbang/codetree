@@ -8,4 +8,4 @@ elif n == 2:
 elif n == 3:
     ans = 'Paul'
 
-print(ans )
+print(ans)
