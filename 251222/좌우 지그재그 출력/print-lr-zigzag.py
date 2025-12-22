@@ -6,6 +6,6 @@ for i in range(n):
             print(i*n+j+1, end=' ')
     else:
         for j in range(n, 0, -1):
-            print('-', end=' ')
+            print(i*n+j, end=' ')
 
     print()
