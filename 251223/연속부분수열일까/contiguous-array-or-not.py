@@ -12,6 +12,5 @@ for i in range(n1-n2+1):
     if flag:
         print('Yes')
         break
-
-if not flag:
+else:
     print('No')
