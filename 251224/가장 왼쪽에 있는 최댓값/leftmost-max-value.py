@@ -10,6 +10,6 @@ while mx_idx != 0:
         if a[i] > mx:
             mx = a[i]
             mx_idx = i
-    ans.append(mx_idx)
+    ans.append(mx_idx+1)
 
-print(ans)
+print(*ans)
