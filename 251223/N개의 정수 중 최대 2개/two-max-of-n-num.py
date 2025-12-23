@@ -12,12 +12,10 @@ for idx, val in enumerate(a):
 
 mx2 = -sys.maxsize
 for idx, val in enumerate(a):
-    if val > mx2:
-        if val == mx1:
-            if mx_idx != idx:
-                mx2 = val
+    if idx == mx1_idx:
+        continue
 
-        else:
-            mx2 = val
+    if val > mx2:
+        mx2 = val
 
 print(mx1, mx2)
