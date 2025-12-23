@@ -5,5 +5,5 @@ for i in range(1, 20):
             print(f'{i} * {j} = {i*j}')
         else:
             print(f'{i} * {j} = {i*j}', end='')
-            print(' / ', end='')
+            if j != 19: print(' / ', end='')
     print()
