@@ -1,0 +1,14 @@
+start, end = map(int, input().split())
+
+# Please write your code here.
+cnt = 0
+for i in range(start, end+1):
+    sum_ = 0
+
+    for j in range(1, i):
+        if i % j == 0:
+            sum_ += j
+        
+    if sum_ == i: cnt += 1
+
+print(cnt)
