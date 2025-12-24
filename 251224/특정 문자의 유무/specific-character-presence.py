@@ -1,11 +1,10 @@
 s = input()
 
-ee = False
-ab = False
+ee = ab = 'No'
 
 if 'ee' in s:
-    ee = True
+    ee = 'Yes'
 if 'ab' in s:
-    ab = True
+    ab = 'Yes'
 
 print(ee, ab)
