@@ -1,2 +1,2 @@
 s = input()
-print(s, s, end='\n')
+print(s, s, sep='\n')
