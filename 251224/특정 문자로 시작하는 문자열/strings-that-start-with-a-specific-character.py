@@ -9,4 +9,4 @@ for s in arr:
         cnt += 1
         sum_ += len(s)
 
-print(f'{cnt} {(sum_ / n):.2f}')
+print(f'{cnt} {(sum_ / cnt):.2f}')
