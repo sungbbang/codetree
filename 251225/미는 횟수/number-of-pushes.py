@@ -8,4 +8,4 @@ for _ in range(len(a)):
     if a == b:
         break
 
-print(n)
+print(n if n > 0 else -1)
