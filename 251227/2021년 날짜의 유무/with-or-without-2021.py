@@ -7,7 +7,7 @@ def solve(m, d):
     if m > 12:
         return False
 
-    if days[m-1] <= d:
+    if days[m-1] >= d:
         return True
     return False
 
