@@ -4,6 +4,9 @@ M, D = map(int, input().split())
 days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
 def solve(m, d):
+    if m > 12:
+        return False
+
     if days[m-1] <= d:
         return True
     return False
