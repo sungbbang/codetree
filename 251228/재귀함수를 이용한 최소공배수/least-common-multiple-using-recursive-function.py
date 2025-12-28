@@ -12,7 +12,6 @@ def lcm(a, b):
 
 def f(n):
     if n == 0: return arr[0]
-    if n == 1: return lcm(arr[0], arr[1])
 
     return lcm(arr[n], f(n-1))
 
