@@ -17,7 +17,7 @@ for (let i = 1; i <= n; i++) {
 }
 people.sort((a, b) => a.name - b.name);
 
-const ans = people[0];
+const ans = people[people.length - 1];
 console.log(`name ${ans.name}`);
 console.log(`addr ${ans.bunji}`);
 console.log(`city ${ans.region}`);
