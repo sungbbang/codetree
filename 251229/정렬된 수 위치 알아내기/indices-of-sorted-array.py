@@ -1,16 +1,13 @@
 n = int(input())
 arr = list(map(int, input().split()))
+nums = [(num, i) for i, num in enumerate(arr)]
+ans = [0] * n
 
-sorted_arr = sorted(arr)
+nums.sort(key=lambda x: (x[0], x[1]))
+print(nums)
 
-ans = []
-for num in arr:
-    for i in range(n):
-        if sorted_arr[i] == num:
-            idx = i+1
-            while idx in ans:
-                idx += 1
-            ans.append(idx)
-            break
+
+for i, num in enumerate(nums):
+    ans[num[1]] = i + 1
 
 print(*ans)
