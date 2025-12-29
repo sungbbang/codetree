@@ -19,10 +19,9 @@ for (let i = 1; i <= n; i++) {
 }
 
 names.sort();
-const idx = names.length - 1;
 
 for (let i = 0; i < n; i++) {
-    if (people[idx].name == people[i].name) {
+    if (names[n-1] == people[i].name) {
         console.log(`name ${people[i].name}`);
         console.log(`addr ${people[i].bunji}`);
         console.log(`city ${people[i].region}`);
