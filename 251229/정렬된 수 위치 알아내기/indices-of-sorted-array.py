@@ -8,7 +8,7 @@ for num in arr:
     for i in range(n):
         if sorted_arr[i] == num:
             idx = i+1
-            if idx in ans:
+            while idx in ans:
                 idx += 1
             ans.append(idx)
             break
