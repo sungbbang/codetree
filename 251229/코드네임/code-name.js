@@ -16,7 +16,7 @@ for (let i = 0; i < 5; i++) {
 
 min = agentList[0];
 for (let i = 0; i < 5; i++) {
-    if (min <= agentList[i].score) {
+    if (min.score <= agentList[i].score) {
         min = agentList[i];
     }
 }
