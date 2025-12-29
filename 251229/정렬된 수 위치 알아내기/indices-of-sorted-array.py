@@ -1,10 +1,16 @@
 n = int(input())
 arr = list(map(int, input().split()))
 
-ans = [0] * 1000001
 sorted_arr = sorted(arr)
-for num in arr:
-    ans[num] = sorted_arr.index(num) + 1
 
-for i in arr:
-    print(ans[i], end=' ')
+ans = []
+for num in arr:
+    for i in range(n):
+        if sorted_arr[i] == num:
+            idx = i+1
+            if idx in ans:
+                idx += 1
+            ans.append(idx)
+            break
+
+print(*ans)
