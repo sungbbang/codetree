@@ -11,13 +11,17 @@ class Person {
 const input = fs.readFileSync(0).toString().trim().split('\n');
 const n = Number(input[0]);
 const people = [];
+const names = []
 for (let i = 1; i <= n; i++) {
     const [name, bunji, region] = input[i].split(' ');
     people.push(new Person(name, bunji, region));
+    names.push(name);
 }
-people.sort((a, b) => b.name - a.name);
 
-const ans = people[people.length - 1];
+names.sort();
+const idx = names.length - 1;
+
+const ans = people[idx];
 console.log(`name ${ans.name}`);
 console.log(`addr ${ans.bunji}`);
 console.log(`city ${ans.region}`);
