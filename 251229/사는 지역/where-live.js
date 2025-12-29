@@ -23,9 +23,9 @@ const idx = names.length - 1;
 
 for (let i = 0; i < n; i++) {
     if (people[idx].name == people[i].name) {
-        console.log(`name ${ans.name}`);
-        console.log(`addr ${ans.bunji}`);
-        console.log(`city ${ans.region}`);
+        console.log(`name ${people[i].name}`);
+        console.log(`addr ${people[i].bunji}`);
+        console.log(`city ${people[i].region}`);
         break;
     }
 }
