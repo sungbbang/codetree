@@ -15,7 +15,7 @@ for (let i = 1; i <= n; i++) {
     const [name, bunji, region] = input[i].split(' ');
     people.push(new Person(name, bunji, region));
 }
-people.sort((a, b) => a.name - b.name);
+people.sort((a, b) => b.name - a.name);
 
 const ans = people[people.length - 1];
 console.log(`name ${ans.name}`);
