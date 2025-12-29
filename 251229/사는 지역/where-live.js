@@ -21,7 +21,11 @@ for (let i = 1; i <= n; i++) {
 names.sort();
 const idx = names.length - 1;
 
-const ans = people[idx];
-console.log(`name ${ans.name}`);
-console.log(`addr ${ans.bunji}`);
-console.log(`city ${ans.region}`);
+for (let i = 0; i < n; i++) {
+    if (people[idx].name == people[i].name) {
+        console.log(`name ${ans.name}`);
+        console.log(`addr ${ans.bunji}`);
+        console.log(`city ${ans.region}`);
+        break;
+    }
+}
