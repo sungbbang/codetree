@@ -11,6 +11,4 @@ end_total_date = sum(num_of_days[:m2]) + d2
 diff = end_total_date - start_total_date
 end_day = day_of_week[diff % 7]
 
-print(start_total_date)
-print(end_total_date)
-print(end_day)
+print(diff // 7 + 1)
