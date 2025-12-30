@@ -5,7 +5,7 @@ segments = [tuple(map(int, input().split())) for _ in range(n)]
 
 arr = [0] * (2*MAX+1)
 for a, b in segments:
-    for i in range(a, b):
+    for i in range(a+100, b+100):
         arr[i] += 1
 
 print(max(arr))
