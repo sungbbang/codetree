@@ -5,13 +5,12 @@ arr = [0] * (n * 10 * 2 + 1)
 curr = len(arr) // 2
 
 for x, dr in commands:
-    x = int(x)
-    for _ in range(x):
-        arr[curr] += 1
+    for _ in range(int(x)):
         if dr == 'L':
             curr -= 1
         else:
             curr += 1
+        arr[curr] += 1
 
 cnt = 0
 for el in arr:
