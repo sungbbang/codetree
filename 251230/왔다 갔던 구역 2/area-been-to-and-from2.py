@@ -8,9 +8,10 @@ for x, dr in commands:
     for _ in range(int(x)):
         if dr == 'L':
             curr -= 1
+            arr[curr] += 1
         else:
+            arr[curr] += 1
             curr += 1
-        arr[curr] += 1
 
 cnt = 0
 for el in arr:
