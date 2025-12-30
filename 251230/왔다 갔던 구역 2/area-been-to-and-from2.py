@@ -1,17 +1,24 @@
+MAX = 1000
+
 n = int(input())
 commands = [input().split() for _ in range(n)]
 
-arr = [0] * (n * 10 * 2 + 1)
-curr = len(arr) // 2
+arr = [0] * (2*MAX+1)
 
+pos = []
+curr = 0
 for x, dr in commands:
-    for _ in range(int(x)):
-        if dr == 'L':
-            curr -= 1
-            arr[curr] += 1
-        else:
-            arr[curr] += 1
-            curr += 1
+    x = int(x)
+    if dr == 'L':
+        pos.append((curr-x, curr))
+        curr -= x
+    else:
+        pos.append((curr, curr+x))
+        curr += x
+
+for a, b in pos:
+    for i in range(a+1000, b+1000):
+        arr[i] += 1
 
 cnt = 0
 for el in arr:
