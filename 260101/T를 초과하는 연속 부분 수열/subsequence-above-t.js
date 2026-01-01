@@ -10,7 +10,7 @@ let ans = 0;
 
 for (let i = 0; i < n; i++) {
     if (arr[i] > t) {
-        if (i === 0 || arr[i-1] < arr[i]) cnt++;
+        if (i === 0 || (arr[i-1] < arr[i] && arr[i-1] > t)) cnt++;
         else cnt = 1;
     } else {
         cnt = 0;
