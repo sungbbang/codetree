@@ -9,13 +9,29 @@ for idx, (x1, y1, x2, y2) in enumerate(coord, start=1):
             arr[i][j] = idx
 
 
-first = []
-for i in range(2*MAX+1):
-    for j in range(2*MAX+1):
-        if arr[i][j] == 1:
-            first.append((i, j))
+first_rect = coord[0]
+x1, y1, x2, y2 = first_rect
+x1 = x1 + MAX
+y1 = y1 + MAX
+x2 = x2 + MAX
+y2 = y2 + MAX
 
-if len(first) == 0:
+min_x = 2*MAX+1
+min_y = 2*MAX+1
+max_x = 0
+max_y = 0
+
+flag = False
+for i in range(x1, x2):
+    for j in range(y1, y2):
+        if arr[i][j] == 1:
+            flag = True
+            min_x = min(min_x, i)
+            min_y = min(min_y, j)
+            max_x = max(max_x, i)
+            max_y = max(max_y, j)
+
+if not flag:
     print(0)
 else:
-    print((first[-1][0] - first[0][0] + 1) * (first[-1][1] - first[0][1] + 1))
+    print((max_x - min_x + 1) * (max_y - min_y + 1))
