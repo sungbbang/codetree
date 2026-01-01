@@ -9,11 +9,9 @@ for (let i = 0; i < n; i++) {
     if (i == 0 || arr[i-1] === arr[i]) {
         cnt++;
     } else {
-        if (cnt >= max) max = cnt;
         cnt = 1
     }
+    if (cnt >= max) max = cnt;
 }
-
-if (cnt >= max) max = cnt;
 
 console.log(max);
