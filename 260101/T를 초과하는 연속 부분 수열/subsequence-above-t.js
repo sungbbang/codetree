@@ -7,17 +7,16 @@ const arr = input[1].split(' ').map(Number);
 let cnt = 0;
 let ans = 0;
 
-for (let i = 0; i < n; i++) {
-    if (arr[i] > t) {
-        if (i > 0 && arr[i - 1] > t && arr[i] > arr[i - 1]) {
-            cnt++;
-        } else {
-            cnt = 1;
-        }
+for (let i = 0; i < arr.length; i++) {
+  if (arr[i] > t) {
+    if (i === 0 || arr[i-1] > t) {
+      cnt++;
     } else {
-        cnt = 0;
+      cnt = 1;
     }
-    ans = Math.max(ans, cnt);
+  } else cnt = 0;
+
+  ans = Math.max(ans, cnt);
 }
 
 console.log(ans);
