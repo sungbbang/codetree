@@ -2,7 +2,7 @@ n, m = map(int, input().split());
 a_dt = [tuple(input().split()) for _ in range(n)]
 b_dt = [tuple(input().split()) for _ in range(m)]
 
-MAX = 1000
+MAX = 1000 * 1000
 a = [0] * (2*MAX+1)
 b = [0] * (2*MAX+1)
 
