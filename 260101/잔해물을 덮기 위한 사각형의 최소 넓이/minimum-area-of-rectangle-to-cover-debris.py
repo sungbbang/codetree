@@ -15,4 +15,7 @@ for i in range(2*MAX+1):
         if arr[i][j] == 1:
             first.append((i, j))
 
-print((first[-1][0] - first[0][0] + 1) * (first[-1][1] - first[0][1] + 1))
+if len(first) == 0:
+    print(0)
+else:
+    print((first[-1][0] - first[0][0] + 1) * (first[-1][1] - first[0][1] + 1))
