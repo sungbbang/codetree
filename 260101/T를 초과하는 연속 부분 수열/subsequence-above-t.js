@@ -7,14 +7,10 @@ const arr = input[1].split(' ').map(Number);
 // Please Write your code here.
 let cnt = 0;
 let ans = 0;
-if (arr[0] > t) {
-    cnt = 1;
-    ans = 1;
-}
 
-for (let i = 1; i < n; i++) {
+for (let i = 0; i < n; i++) {
     if (arr[i] > t) {
-        if (arr[i-1] < arr[i]) cnt++;
+        if (i === 0 || arr[i-1] < arr[i]) cnt++;
         else cnt = 1;
     } else {
         cnt = 0;
