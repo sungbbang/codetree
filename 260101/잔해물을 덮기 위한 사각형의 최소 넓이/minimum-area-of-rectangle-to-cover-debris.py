@@ -1,6 +1,6 @@
 coord = [list(map(int, input().split())) for _ in range(2)]
 
-MAX = 10
+MAX = 1000
 arr = [[0] * (2*MAX+1) for _ in range(2*MAX+1)]
 
 for idx, (x1, y1, x2, y2) in enumerate(coord, start=1):
