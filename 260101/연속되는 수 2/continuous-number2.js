@@ -3,8 +3,8 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 const n = Number(input[0]);
 const arr = input.slice(1, n+1).map(Number);
 
-let max = 0
-let cnt = 0
+let max = 1
+let cnt = 1
 for (let i = 0; i < n; i++) {
     if (i == 0 || arr[i-1] === arr[i]) {
         cnt++;
