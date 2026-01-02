@@ -35,10 +35,10 @@ for _ in range(n):
 
 if last_time_a > last_time_b:
     for i in range(last_time_b, last_time_a):
-        B[i] = last_time_b
+        B[i] = B[last_time_b]
 elif last_time_a < last_time_b:
     for i in range(last_time_a, last_time_b):
-        A[i] = last_time_a
+        A[i] = A[last_time_a]
 
 
 cnt = 0
