@@ -4,6 +4,7 @@ A = [0] * (2*MAX+1)
 B = [0] * (2*MAX+1)
 
 time_a = 1
+last_time_a = 0
 for _ in range(n):
     t, d = input().split()
     t = int(t)
@@ -15,8 +16,10 @@ for _ in range(n):
         for _ in range(t):
             A[time_a] = A[time_a - 1] - 1
             time_a += 1
+    last_time_a = time_a
 
 time_b = 1
+last_time_b = 0
 for _ in range(n):
     t, d = input().split()
     t = int(t)
@@ -28,6 +31,15 @@ for _ in range(n):
         for _ in range(t):
             B[time_b] = B[time_b - 1] - 1
             time_b += 1
+    last_time_b = time_b
+
+if last_time_a > last_time_b:
+    for i in range(last_time_b, last_time_a):
+        B[i] = last_time_b
+elif last_time_a < last_time_b:
+    for i in range(last_time_a, last_time_b):
+        A[i] = last_time_a
+
 
 cnt = 0
 for i in range(2*MAX+1):
