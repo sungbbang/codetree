@@ -16,5 +16,27 @@ for v, t in B:
         b.append(curr+v)
         curr += v
 
-print(a)
-print(b)
+head = 0
+cnt = 0
+for i in range(1, len(a)):
+    if head == 0:
+        if a[i] > b[i]:
+            head = 1
+        elif a[i] < b[i]:
+            head = 2
+        continue
+
+    if head == 1:
+        if a[i] < b[i]:
+            head = 2
+            cnt += 1
+        else:
+            continue
+    elif head == 2:
+        if a[i] > b[i]:
+            head = 1
+            cnt += 1
+        else:
+            continue
+
+print(cnt)
