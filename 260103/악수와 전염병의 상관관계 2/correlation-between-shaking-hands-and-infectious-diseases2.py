@@ -7,6 +7,13 @@ devs[p] = 1
 
 cnt = [0] * (n+1)
 for t, a, b in handshakes:
+    # 둘다 감염자인 경우
+    if devs[a] == 1 and devs[b] == 1:
+        if cnt[a] < k:
+            cnt[a] += 1
+        if cnt[b] < k:
+            cnt[b] += 1
+    # 한명만 감염자인 경우
     if devs[a] == 1:
         if cnt[a] < k:
             devs[b] = 1
