@@ -16,7 +16,7 @@ for i in range(n):
         for dx, dy in zip(dxs, dys):
             cnt = 1
             x, y = i, j
-            for _ in range(5):
+            while True:
                 nx = x + dx
                 ny = y + dy
                 if not in_range(nx, ny):
