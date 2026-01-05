@@ -16,13 +16,13 @@ for i in range(n):
         for dx, dy in zip(dxs, dys):
             cnt = 1
             x, y = i, j
-            while True:
+            for _ in range(5):
                 nx = x + dx
                 ny = y + dy
                 if not in_range(nx, ny):
                     break
                 
-                if arr[nx][ny] != arr[x][y]:
+                if arr[nx][ny] != arr[i][j]:
                     break
                 
                 cnt += 1
