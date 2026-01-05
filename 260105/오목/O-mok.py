@@ -43,11 +43,11 @@ for i in range(n-4):
             r = i+1+2
             c = j+1+2
 # 대각(/)으로 연속적인 경우
-for i in range(4, n-4):
+for i in range(n-4):
     for j in range(4, n-4):
         temp = []
         for k in range(5):
-            temp.append(arr[i-k][j-k])
+            temp.append(arr[i+k][j-k])
         if is_same(temp):
             winner = temp[0]
             r = i+1-2
