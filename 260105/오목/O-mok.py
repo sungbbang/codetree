@@ -28,9 +28,9 @@ for i in range(n):
                 cnt += 1
                 x, y = nx, ny
         
-        if cnt == 5:
-            print(arr[i][j])
-            print(i + 2 * dx + 1, j + 2 * dy + 1)
-            sys.exit()
+            if cnt == 5:
+                print(arr[i][j])
+                print(i + 2 * dx + 1, j + 2 * dy + 1)
+                sys.exit()
 
 print(0)
