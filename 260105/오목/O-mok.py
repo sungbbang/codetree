@@ -50,7 +50,7 @@ for i in range(n-4):
             temp.append(arr[i+k][j-k])
         if is_same(temp):
             winner = temp[0]
-            r = i+1-2
+            r = i+1+2
             c = j+1-2
 
 
