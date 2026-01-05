@@ -1,4 +1,4 @@
-a = list(input())
+a = list(map(int, list(input())))
 n = len(a)
 
 def change_10(binary_num):
@@ -9,8 +9,8 @@ def change_10(binary_num):
 
 max_num = 0
 for i in range(n):
-    b = a[:]
-    b[i] = '1' if b[i] == '0' else '0'
-    max_num = max(max_num, change_10(b))
+    a[i] = 1 - a[i]
+    max_num = max(max_num, change_10(a))
+    a[i] = 1 - a[i]
 
 print(max_num)
