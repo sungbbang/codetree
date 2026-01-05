@@ -7,24 +7,30 @@ dys = [-1, 0, 1, -1, 0, 1, -1, 1]
 def in_range(x, y):
     return 0 <= x < n and 0 <= y < m
 
-def is_correct(s):
-    return s == 'LEE' or s == 'EEL'
-
 ans = 0
 for i in range(n):
     for j in range(m):
+        if arr[i][j] != 'L':
+            continue
+
         for dx, dy in zip(dxs, dys):
-            temp = ''
-            for k in range(3):
-                nx = i + dx * k
-                ny = j + dy * k
+            cnt = 1
+            x, y = i, j
+
+            while True:
+                nx = x + dx
+                ny = y + dy
 
                 if not in_range(nx, ny):
                     break
 
-                temp += arr[nx][ny]
+                if arr[nx][ny] != 'E':
+                    break
+                
+                cnt += 1
+                x, y = nx, ny
 
-            if is_correct(temp):
+            if cnt >= 3:
                 ans += 1
 
-print(ans // 2)
+print(ans)
