@@ -7,6 +7,7 @@ for i in range(n):
         sum_val = arr[i][j] + arr[i][j+1] + arr[i][j+2]
         grid.append((sum_val, [i, j]))
 
+
 grid.sort(key=lambda x: x[0])
 
 max_grid = grid.pop()
@@ -20,7 +21,7 @@ while True:
         ans += curr[0]
         break
     elif x == curr_x:
-        if curr_y <= y + 2:
+        if abs(curr_y - y) < 3:
             continue
         else:
             ans += curr[0]
