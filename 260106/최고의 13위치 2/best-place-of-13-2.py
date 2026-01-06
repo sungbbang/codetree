@@ -1,29 +1,23 @@
 n = int(input())
 arr = [list(map(int, input().split())) for _ in range(n)]
 
-grid = []
+# 서로 다른 행에 두 격자
+max_val1 = 0
 for i in range(n):
     for j in range(n-2):
-        sum_val = arr[i][j] + arr[i][j+1] + arr[i][j+2]
-        grid.append((sum_val, [i, j]))
+        for k in range(i+1, n):
+            for l in range(n-2):
+                grid1_sum = arr[i][j] + arr[i][j+1] + arr[i][j+2]
+                grid2_sum = arr[k][l] + arr[k][l+1] + arr[k][l+2]
+                max_val1 = max(max_val1, grid1_sum + grid2_sum)
 
+# 같은 행에 두 격자(n >= 6)
+max_val2 = 0
+for i in range(n):
+    for j in range(n-2):
+        for k in range(j+3, n-2):
+            grid1_sum = arr[i][j] + arr[i][j+1] + arr[i][j+2]
+            grid2_sum = arr[i][k] + arr[i][k+1] + arr[i][k+2]
+            max_val2 = max(max_val2, grid1_sum + grid2_sum)
 
-grid.sort(key=lambda x: x[0])
-
-max_grid = grid.pop()
-ans = max_grid[0]
-x, y = max_grid[1]
-
-while True:
-    curr = grid.pop()
-    curr_x, curr_y = curr[1]
-    if x != curr_x:
-        ans += curr[0]
-        break
-    elif x == curr_x:
-        if abs(curr_y - y) < 3:
-            continue
-        else:
-            ans += curr[0]
-            break
-print(ans)
+print(max(max_val1, max_val2))
