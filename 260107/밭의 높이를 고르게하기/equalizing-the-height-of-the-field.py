@@ -4,17 +4,14 @@ arr = list(map(int, input().split()))
 
 def calc(arr):
     result = 0
-    for i in range(t):
-        if arr[i] < h:
-            result += (h - arr[i]) * 2
+    for el in arr:
+        result += abs(h - el)
     
     return result
 
+
 def check(arr):
-    if sum(arr) // t != h:
-        return False
-        
-    return True
+    return sum(arr) == h * t
 
 ans = sys.maxsize
 for i in range(n-t+1):
