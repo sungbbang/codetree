@@ -22,12 +22,12 @@ def check(arr):
     if g == h:
         return True
 
-    if zero == 0:
-        if g > 0 and h == 0:
-            return True
     
-        if g == 0 and h > 0:
-            return True
+    if g > 0 and h == 0:
+        return True
+    
+    if g == 0 and h > 0:
+        return True
     
     return False
 
