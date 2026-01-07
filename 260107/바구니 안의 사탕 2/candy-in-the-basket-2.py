@@ -6,7 +6,11 @@ for _ in range(n):
     arr[b] += c
 
 ans = 0
-for i in range(k, MAX-k+1):
-    ans = max(ans, sum(arr[i+1-k:i+k+2]))
+for i in range(MAX+1):
+    sum_val = 0
+    for j in range(i-k, i+k+1):
+        if 0 <= j <= MAX:
+            sum_val += arr[j]
+    ans = max(ans, sum_val)
 
 print(ans)
