@@ -24,13 +24,13 @@ function validation(candidate, guess, a, b) {
 }
 
 const result = [];
-let isValid = true;
 for (let i = 1; i <= 9; i++) {
     for (let j = 1; j <= 9; j++) {
         for (let k = 1; k <= 9; k++) {
             // 서로 다른 숫자가 아닌 경우 패스
             if (i == j || j == k || i == k) continue;
 
+            let isValid = true;
             const num = i*100+j*10+k;
             for (let [guess, a, b] of arr) {
                 if (!validation(num, guess, a, b)) {
@@ -41,7 +41,6 @@ for (let i = 1; i <= 9; i++) {
             if (isValid) {
                 result.push(num);
             }
-            isValid = true;
         }
     }
 }
