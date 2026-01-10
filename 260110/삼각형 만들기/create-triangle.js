@@ -46,7 +46,7 @@ for (let i = 0; i < n; i++) {
             const p3 = points[k];
 
             if (isRightTriangle(p1, p2, p3)) {
-                ans = Math.max(ans, parseInt(getArea(p1, p2, p3)));
+                ans = Math.max(ans, getArea(p1, p2, p3));
             }
         }
     }
