@@ -3,10 +3,18 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 const n = Number(input[0]);
 const points = input.slice(1, 1 + n).map(line => line.split(' ').map(Number));
 
+const MAX = 10000;
 function isRightTriangle(p1, p2, p3) {
-    const [x1, y1] = p1;
-    const [x2, y2] = p2;
-    const [x3, y3] = p3;
+    let [x1, y1] = p1;
+    let [x2, y2] = p2;
+    let [x3, y3] = p3;
+
+    x1 += MAX;
+    x2 += MAX;
+    x3 += MAX;
+    y1 += MAX;
+    y2 += MAX;
+    y3 += MAX;
 
     const dot1 = (x2 - x1) * (x3 - x1) + (y2 - y1) * (y3 - y1);
     const dot2 = (x1 - x2) * (x3 - x2) + (y1 - y2) * (y3 - y2);
