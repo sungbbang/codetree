@@ -14,17 +14,24 @@ for (let i = 0; i < S; i++) {
     whoSickWhen.push([p, t]);
 }
 
-function isStale(eat, sick) {
+function getSickPerson(eat, sick, lastTime) {
+    let result = [];
     for (let [eatPerson, eatTime] of eat) {
         for (let [sickPerson, sickTime] of sick) {
+            if (result.includes(eatPerson)) continue;
+
             if (eatPerson === sickPerson) {
-                if (eatTime >= sickTime) {
-                    return false;
+                if (eatTime < sickTime) {
+                    result.push(eatPerson);
+                }
+            } else {
+                if (eatTime < lastTime) {
+                    result.push(eatPerson);
                 }
             }
         }
     }
-    return true;
+    return result;
 }
 
 let ans = 0;
@@ -40,13 +47,7 @@ for (let i = 1; i <= M; i++) {
         }
     }
 
-    let cnt = 0;
-    // 치즈가 상했다면
-    if (isStale(whoEatCheese, whoSickWhen)) {
-        cnt = whoEatCheese.length;
-    }
-
-    ans = Math.max(ans, cnt);
+    ans = Math.max(ans, getSickPerson(whoEatCheese, whoSickWhen, lastEatTime).length)
 }
 
 console.log(ans);
