@@ -14,7 +14,7 @@ for (let i = 0; i < S; i++) {
     whoSickWhen.push([p, t]);
 }
 
-function getSickPerson(eat, sick, lastTime) {
+function getSickPerson(eat, sick) {
     let result = [];
     for (let [eatPerson, eatTime] of eat) {
         for (let [sickPerson, sickTime] of sick) {
@@ -25,9 +25,7 @@ function getSickPerson(eat, sick, lastTime) {
                     result.push(eatPerson);
                 }
             } else {
-                if (eatTime < lastTime) {
-                    result.push(eatPerson);
-                }
+                result.push(eatPerson);
             }
         }
     }
@@ -39,15 +37,13 @@ let ans = 0;
 for (let i = 1; i <= M; i++) {
     // 치즈 섭취 정보를 순회
     const whoEatCheese = [];
-    let lastEatTime = 0;
     for (let [person, cheese, time] of whoEatCheeseWhen) {
         if (cheese === i) {
             whoEatCheese.push([person, time]);
-            lastEatTime = Math.max(lastEatTime, time);
         }
     }
 
-    ans = Math.max(ans, getSickPerson(whoEatCheese, whoSickWhen, lastEatTime).length)
+    ans = Math.max(ans, getSickPerson(whoEatCheese, whoSickWhen).length)
 }
 
 console.log(ans);
