@@ -7,10 +7,10 @@ let ans = -1;
 for (let i = 0; i < n; i++) {
     for (let j = 0; j < n; j++) {
         if (i === j) continue;
-        
+
         const bomb1 = bombs[i];
         const bomb2 = bombs[j];
-        if (bomb1 === bomb2 && Math.abs(i-j <= k)) {
+        if (bomb1 === bomb2 && Math.abs(i-j) <= k) {
             ans = Math.max(ans, bomb1);
         }
     }
