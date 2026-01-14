@@ -6,7 +6,7 @@ const points = input.slice(1, n + 1).map(line => line.split(' ').map(Number));
 
 function getDiff(nums) {
     let sum = 0;
-    for (let i = 0; i < 2; i++) {
+    for (let i = 0; i < 3; i++) {
         sum += Math.abs(nums[i] - nums[i+1]);
     }
     return sum;
