@@ -5,6 +5,10 @@ const n = 3;
 
 
 function canWin(arr) {
+    if (arr.length === 0) {
+        return false;
+    }
+
     const nums = Array(10).fill(0);
 
     for (let el of arr) {
@@ -20,7 +24,7 @@ function canWin(arr) {
     return false;
 }
 
-let ans = 0;
+let ans = [];
 for (let i = 0; i < n; i++) {
     const a = []; // 가로
     const b = []; // 세로
@@ -34,10 +38,24 @@ for (let i = 0; i < n; i++) {
             d.push(board[j][n-j-1]);
         }
     }
-    if (canWin(a)) ans++;
-    if (canWin(b)) ans++;
-    if (canWin(c)) ans++;
-    if (canWin(d)) ans++;
+
+    if (canWin(a)) ans.push(a.join(''));
+    if (canWin(b)) ans.push(b.join(''));
+    if (canWin(c)) ans.push(c.join(''));
+    if (canWin(d)) ans.push(d.join(''));
 }
 
-console.log(ans);
+const nums = Array(1000).fill(0);
+
+for (let a of ans) {
+    nums[Number(a)]++;
+}
+
+let result = 0;
+for (let num of nums) {
+    if (num >= 1) {
+        result++;
+    }
+}
+
+console.log(result);
