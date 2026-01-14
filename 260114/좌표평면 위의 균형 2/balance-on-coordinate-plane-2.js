@@ -5,8 +5,8 @@ const n = Number(input[0]);
 const points = input.slice(1, n + 1).map(line => line.split(' ').map(Number));
 
 let ans = Infinity;
-for (let i = 2; i <= 14; i+=2) {
-    for (let j = 2; j <= 14; j+=2) {
+for (let i = 2; i <= 100; i+=2) {
+    for (let j = 2; j <= 100; j+=2) {
         const count = [0, 0, 0, 0];
         for (let [x, y] of points) {
             if (x < i && y < j) count[0]++;
