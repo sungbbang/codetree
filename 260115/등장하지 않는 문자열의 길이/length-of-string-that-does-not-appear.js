@@ -4,21 +4,20 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 const n = Number(input[0]);
 const str = input[1];
 
-let ans = 0;
-for (let i = 1; i <= n; i++) {
-    let flag = false;
-    for (let j = 0; j <= n - i; j++) {
-        const curr = str.slice(j, j + i);
-        const remain = str.slice(j + i);
-        if (remain.includes(curr)) {
-            flag = true;
-            ans = i;
+for (let len = 1; len <= n; len++) {
+    let hasDuplicate = false;
+    
+    for (let j = 0; j <= n - len; j++) {
+        const curr = str.slice(j, j + len);
+        const nextIndex = str.indexOf(curr, j + 1);
+        if (nextIndex !== -1) {
+            hasDuplicate = true;
             break;
         }
     }
-    if (!flag) {
-        break;
+    
+    if (!hasDuplicate) {
+        console.log(len);
+        process.exit(0);
     }
 }
-
-console.log(ans + 1);
