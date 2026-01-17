@@ -1,21 +1,25 @@
-const fs = require('fs');
+const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
-const [n, k] = input[0].split(' ').map(Number);
-const numbers = input.slice(1).map(v => Number(v));
 
-numbers.sort((a, b) => a - b);
-let ans = 0;
-for (let i = 0; i < n; i++) {
-    const temp = [];
-    temp.push(numbers[i]);
-    for (let j = i+1; j < n; j++) {
-        if (numbers[j] - temp[0] <= k) {
-            temp.push(numbers[j]);
-        } else {
-            break;
+const MAX_NUM = 10000;
+
+const [n, k] = input[0].split(' ').map(Number);
+const arr = input.slice(1, 1 + n).map(Number);
+
+function countNum(l, r) {
+    let cnt = 0;
+    arr.forEach(elem => {
+        if (l <= elem && elem <= r) {
+            cnt += 1;
         }
-    }
-    ans = Math.max(ans, temp.length);
+    });
+
+    return cnt;
+}
+
+let ans = 0;
+for (let i = 1; i <= MAX_NUM; i++) {
+    ans = Math.max(ans, countNum(i, i + k));
 }
 
 console.log(ans);
