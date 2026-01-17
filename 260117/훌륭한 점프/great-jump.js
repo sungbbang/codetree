@@ -34,4 +34,4 @@ for (let i = n; i >= 1; i--) {
     }
 }
 
-console.log(ans);
+console.log(Math.max(ans, stones[0]));
