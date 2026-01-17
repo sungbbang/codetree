@@ -21,13 +21,13 @@ function isPossible(maxVal) {
 }
 
 
-let ans = [];
+let ans = Infinity;
 // 1번과 n번 돌은 무조건 밟기 때문에 초기값은 둘중 가장 큰 값으로 설정
 for (let i = Math.max(stones[0], stones[n-1]); i <= 100; i++) {
     if (isPossible(i)) {
-        ans.push(i)
+        ans = Math.min(ans, i);
     }
 }
 
-console.log(Math.min(...ans));
+console.log(ans);
 
