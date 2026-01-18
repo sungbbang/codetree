@@ -4,10 +4,16 @@ const n = Number(input[0]);
 const sums = input[1].split(' ').map(Number);
 
 function isValid(arr) {
-    for (let i = 0; i < sums.length; i++) {
-        if (arr[i] + arr[i+1] !== sums[i]) {
+    const nums = [];
+    for (let i = 0; i < n; i++) {
+        if (arr[i] < 0) {
             return false;
         }
+
+        if (nums.includes(arr[i])) {
+            return false;
+        }
+        nums.push(arr[i]);
     }
 
     return true;
@@ -20,10 +26,8 @@ for (let i = 1; i <= n; i++) {
         arr.push(sums[j] - arr[j]);
     }
 
-    console.log(arr)
-   
-    // if (isValid(arr)) {
-    //     console.log(arr.join(' '));
-    //     break;
-    // }
+    if (isValid(arr)) {
+        console.log(arr.join(' '));
+        break;
+    }
 }
