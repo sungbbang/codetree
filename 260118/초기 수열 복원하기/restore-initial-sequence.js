@@ -6,7 +6,7 @@ const sums = input[1].split(' ').map(Number);
 function isValid(arr) {
     const nums = [];
     for (let i = 0; i < n; i++) {
-        if (arr[i] < 0) {
+        if (arr[i] <= 0) {
             return false;
         }
 
