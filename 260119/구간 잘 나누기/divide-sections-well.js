@@ -23,7 +23,7 @@ for (let i = Math.max(...numbers); i <= total; i++) {
         }
     }
     maxSum = Math.max(maxSum, sum);
-    if (cnt === m-1) {
+    if (cnt <= m-1) {
         ans = Math.max(ans, maxSum);
         break;
     }
