@@ -13,7 +13,7 @@ for (let [x1, x2] of segments) {
 
 let flag = false;
 for (let num of lines) {
-    if (num === 3) {
+    if (num === n) {
         flag = true;
         break;
     }
