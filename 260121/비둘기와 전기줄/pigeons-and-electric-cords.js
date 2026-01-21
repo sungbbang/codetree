@@ -3,19 +3,26 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 const n = Number(input[0]);
 const movements = input.slice(1, n + 1).map(line => line.split(' ').map(Number));
 
-const arr = Array(11).fill(null).map(v => Array(2).fill(0));
-
-for (let [birdNum, move] of movements) {
-    arr[birdNum][move]++;
-}
+const arr = Array(11).fill(null);
 
 let ans = 0;
-for (let el of arr) {
-    const [l, r] = el;
-    
-    if (l === 0 || r === 0) continue;
+for (let [bird, move] of movements) {
+    if (arr[bird] === null) {
+        arr[bird] = move;
+        continue;
+    }
 
-    ans += Math.min(l, r);
+    if (move === 0 ) {
+        if (arr[bird] === 1) {
+            arr[bird] = 0;
+            ans++;
+        }
+    } else {
+        if (arr[bird] === 0) {
+            arr[bird] = 1;
+            ans++;
+        }
+    }
 }
 
 console.log(ans);
