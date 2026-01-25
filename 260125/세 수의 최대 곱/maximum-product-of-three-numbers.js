@@ -18,31 +18,43 @@ positive.sort((a, b) => b - a);
 negative.sort((a, b) => a - b);
 
 // 양수가 3개 이상일 때
-let p3 = 0;
+let p3 = null;
 if (positive.length >= 3) {
     p3 = positive[0] * positive[1] * positive[2];
 }
 
 // 양수 1개, 음수 2개일 때
-let p1n2 = 0;
+let p1n2 = null;
 if (positive.length >= 1 && negative.length >= 2) {
     p1n2 = positive[0] * negative[0] * negative[1];
 }
 
 // 양수 2개, 음수 1개일 때
-let p2n1 = 0;
+let p2n1 = null;
 if (positive.length >= 2 && negative.length >= 1) {
     let lastN = negative.length - 1;
     p2n1 = positive[0] * positive[1] * negative[lastN];
 }
 
 // 음수 3개일 때
-let n3 = 0;
+let n3 = null;
 if (negative.length >= 3) {
     n3 = negative[0] * negative[1] * negative[2];
 }
 
-let ans = Math.max(p3, p1n2, p2n1, n3);
+let ans = -Infinity;
+if (p3 !== null) {
+    ans = Math.max(ans, p3);
+}
+if (p1n2 !== null) {
+    ans = Math.max(ans, p1n2);
+}
+if (p2n1 !== null) {
+    ans = Math.max(ans, p2n1);
+}
+if (n3 !== null) {
+    ans = Math.max(ans, n3);
+}
 if (zero) {
     ans = Math.max(ans, 0);
 }
