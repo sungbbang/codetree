@@ -39,7 +39,8 @@ if (positive.length >= 2 && negative.length >= 1) {
 // 음수 3개일 때
 let n3 = null;
 if (negative.length >= 3) {
-    n3 = negative[0] * negative[1] * negative[2];
+    let lastN = negative.length - 1;
+    n3 = negative[lastN] * negative[lastN-1] * negative[lastN-2];
 }
 
 let ans = -Infinity;
