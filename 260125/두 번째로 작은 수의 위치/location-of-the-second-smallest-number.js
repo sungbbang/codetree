@@ -12,13 +12,15 @@ for (let num of arr) {
     numbers[num]++;
 }
 
+let flag = false;
 for (let i = minNum+1; i <= maxNum; i++) {
     if (numbers[i]) {
         if (numbers[i] === 1) {
+            flag = true;
             console.log(arr.indexOf(i) + 1);
-            process.exit();
         }
+        break;
     }
 }
 
-console.log(-1);
+if (!flag) console.log(-1);
