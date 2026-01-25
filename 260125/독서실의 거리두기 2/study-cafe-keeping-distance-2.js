@@ -15,7 +15,7 @@ for (let i = 0; i < n; i++) {
 
     // 좌석에 사람이 없다면, 새로운 한명을 배치 가능
     if (!already[i]) {
-        console.log(`${i}번에 새로운 사람이 앉는 경우`);
+        // console.log(`${i}번에 새로운 사람이 앉는 경우`);
         for (let j = 0; j < n; j++) {
             if (i === j) continue;
 
@@ -25,7 +25,10 @@ for (let i = 0; i < n; i++) {
                 find = true;
             }
         }
-        console.log(`${i}번에서 기존 사람들과 가장 가까운 거리: ${diff}`);
+        // console.log(`${i}번에서 기존 사람들과 가장 가까운 거리: ${diff}`);
+        if (find) {
+            ans = Math.max(ans, diff);
+        }
     }
 }
 
