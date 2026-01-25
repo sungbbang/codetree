@@ -17,7 +17,6 @@ for (let num of arr) {
 positive.sort((a, b) => b - a);
 negative.sort((a, b) => a - b);
 
-let ans = -Infinity;
 // 양수가 3개 이상일 때
 let p3 = 0;
 if (positive.length >= 3) {
@@ -45,4 +44,9 @@ if (negative.length >= 3) {
     n3 = negative[lastN] * negative[lastN-1] * negative[lastN-2];
 }
 
-console.log(Math.max(zero, p3, p1n2, p2n1, n3));
+let ans = Math.max(p3, p1n2, p2n1, n3);
+if (zero) {
+    ans = Math.max(ans, 0);
+}
+
+console.log(ans);
