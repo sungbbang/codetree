@@ -11,24 +11,22 @@ for (let i = 0; i < n; i++) {
 let ans = 0;
 for (let i = 0; i < n; i++) {
     let diff = Infinity;
-    let find = false;
 
-    // 좌석에 사람이 없다면, 새로운 한명을 배치 가능
     if (!already[i]) {
-        // console.log(`${i}번에 새로운 사람이 앉는 경우`);
-        for (let j = 0; j < n; j++) {
-            if (i === j) continue;
+        seats[i] = 1; // 새로운 사람 착석 처리
 
-            // 이미 사람이 앉아있는 자리와의 거리 계산
-            if (already[j]) {
-                diff = Math.min(diff, Math.abs(j - i));
-                find = true;
+        // 배치했을 때, 가장 가까운 거리 계산
+        for (let j = 0; j < n; j++) {
+            for (let k = 0; k < n; k++) {
+                if (j === k) continue;
+                if (seats[j] === 1 && seats[k] === 1) {
+                    diff = Math.min(diff, Math.abs(j - k));
+                }
             }
         }
-        // console.log(`${i}번에서 기존 사람들과 가장 가까운 거리: ${diff}`);
-        if (find) {
-            ans = Math.max(ans, diff);
-        }
+
+        ans = Math.max(ans, diff);
+        seats[i] = 0; // 다시 원래대로 돌리기
     }
 }
 
