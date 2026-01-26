@@ -4,8 +4,12 @@ const [n, m] = input[0].split(' ').map(Number);
 const arr = input[1].trim().split(' ').map(Number);
 
 let ans = 0;
-for (let i = m; i < n; i+=m*2+1) {
-    ans++;
+if (m === 0) {
+    ans = arr.filter(num => num === 1).length;
+} else {
+    for (let i = m; i < n; i+=m*2+1) {
+        ans++;
+    }
 }
 
 console.log(ans);
