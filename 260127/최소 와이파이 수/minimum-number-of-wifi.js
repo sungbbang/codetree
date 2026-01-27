@@ -1,0 +1,24 @@
+const fs = require("fs");
+const input = fs.readFileSync(0).toString().trim().split('\n');
+const [n, m] = input[0].split(' ').map(Number);
+const arr = input[1].trim().split(' ').map(Number);
+
+// m이 0인 경우는 사람이 있는 곳마다 설치
+if (m === 0) {
+    console.log(arr.filter(v => v === 1).length);
+    process.exit();
+}
+
+// 설치 한번에 다 커버되는 경우
+if (m >= Math.floor(n / 2)) {
+    console.log(1);
+    process.exit();
+}
+
+// 설치를 2개 이상해야되는 경우
+let cnt = 0;
+for (let i = m; i < n - m; i+=(m*2+1)) {
+    cnt++;
+}
+
+console.log(cnt);
