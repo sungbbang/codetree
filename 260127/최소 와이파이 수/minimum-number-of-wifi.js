@@ -22,8 +22,15 @@ if (m >= Math.floor(n / 2)) {
 
 // 설치를 2개 이상해야되는 경우
 let cnt = 0;
-for (let i = m; i < n - m; i+=(m*2+1)) {
-    cnt++;
+let i = 0;
+
+while (i < n) {
+    if (arr[i] === 1) {
+        cnt++;
+        i = i + m + m + 1;
+    } else {
+        i++;
+    }
 }
 
 console.log(cnt);
