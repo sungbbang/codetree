@@ -1,35 +1,21 @@
 const fs = require("fs");
 const input = fs.readFileSync(0).toString().trim().split('\n');
+
+// 변수 선언 및 입력
 const [n, m] = input[0].split(' ').map(Number);
 const arr = input[1].trim().split(' ').map(Number);
 
-if (arr.length === 1 && arr[0] === 0) {
-    console.log(0);
-    process.exit();
-}
-
-// m이 0인 경우는 사람이 있는 곳마다 설치
-if (m === 0) {
-    console.log(arr.filter(v => v === 1).length);
-    process.exit();
-}
-
-// 설치 한번에 다 커버되는 경우
-if (m >= Math.floor(n / 2)) {
-    console.log(1);
-    process.exit();
-}
-
-// 설치를 2개 이상해야되는 경우
+// 사람이 살고 있는 곳이 나오면
+// 와이파이를 해당 위치로부터 오른쪽으로 m만큼 떨어진 곳에 놓은 뒤,
+// 2m만큼 떨어진 곳에서 시작하여 다시 탐색을 진행합니다.
 let cnt = 0;
 let i = 0;
-
 while (i < n) {
     if (arr[i] === 1) {
-        cnt++;
-        i = i + m + m + 1;
+        cnt += 1;
+        i += 2 * m + 1;
     } else {
-        i++;
+        i += 1;
     }
 }
 
