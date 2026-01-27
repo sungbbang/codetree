@@ -3,6 +3,11 @@ const input = fs.readFileSync(0).toString().trim().split('\n');
 const [n, m] = input[0].split(' ').map(Number);
 const arr = input[1].trim().split(' ').map(Number);
 
+if (arr.length === 1 && arr[0] === 0) {
+    console.log(0);
+    process.exit();
+}
+
 // m이 0인 경우는 사람이 있는 곳마다 설치
 if (m === 0) {
     console.log(arr.filter(v => v === 1).length);
