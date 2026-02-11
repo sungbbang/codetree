@@ -10,7 +10,7 @@ for (let c of s) {
         if (stack[stack.length - 1] === '(') {
             stack.pop();
         } else {
-            break;
+            stack.push(c);
         }
     }
 }
