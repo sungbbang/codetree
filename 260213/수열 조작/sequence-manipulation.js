@@ -1,11 +1,12 @@
 const fs = require("fs");
-const input = fs.readFileSync(0).toString().trim().split("\n");
-const n = Number(input[0]);
-const dq = Array.from({length: n}, (_, i) => i+1);
+const n = Number(fs.readFileSync(0).toString());
+const dq = Array.from({length: n}, (_, i) => i + 1);
 
-while (dq.length > 1) {
-    dq.shift();
-    dq.push(dq.shift());
+let head = 0;
+while (dq.length - head > 1) {
+    head++;
+    dq.push(dq[head]);
+    head++;
 }
 
-console.log(dq[0]);
+console.log(dq[head]);
